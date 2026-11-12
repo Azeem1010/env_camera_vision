@@ -1,0 +1,15 @@
+# env_scene_node 參數（未列出的用程式內預設，見 env_scene/scene_core.py 的 SceneParams）
+env_scene_node:
+  ros__parameters:
+    image_topic: /env_cam/image_raw
+    show_debug: true
+    process_hz: 10.0
+    calib_dir: ''              # 空 = VISION_CALIB_DIR 或 ~/.ros/vision_calib（與 vision_pkg 共用 hsv.yaml）
+    calib_frames: 5
+    occupied_frames: 3         # C 格佔用狀態需連續幾張相同才切換
+    scene:
+      cap_diameter_mm: 20.0    # 瓶蓋直徑；只用來設面積上下限
+      slot_occupied_threshold: 0.25
+      slot_first_row: far      # far = 1、2 最靠手臂（標準場地、方格上手寫數字）
+      slot_left_to_right: true
+      slot_check_max_mm: 10.0  # 8 格 vs 標準格位誤差上限；超過時 arm*_valid=false

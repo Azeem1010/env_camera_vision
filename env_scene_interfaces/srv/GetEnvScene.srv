@@ -1,0 +1,5 @@
+# 取得最新的環境相機場景（A/B 區物件座標、C 區 8 格座標與佔用）
+---
+bool success
+string message
+EnvScene scene
