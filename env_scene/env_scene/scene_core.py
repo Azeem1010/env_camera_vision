@@ -9,7 +9,8 @@
   world 座標（mm）：原點 = 場地中心（兩塊板子的接縫中點），x 由 A 往 C，y 遠離使用者（朝手臂），場地 600 x 240 mm。
   手臂基座 armN_base（m）：原點 = 底座旋轉軸；x 朝使用者（= -y_world），y = A→C（= +x_world）
       arm1 軸心 world (-100, 125) mm，arm2 (+100, 125) mm（手臂側長邊外 5 mm）
-  C 區 8 格標準位置：x = 135（單號，靠 B）/ 170（雙號），y = 50 / 15 / -20 / -55；1、2 最靠手臂。
+  C 區 8 格位置：x = 135（單號，靠 B）/ 170（雙號），y = 45 / 10 / -25 / -60；1、2 最靠手臂。
+  （dual_arm_system 標準值 y = 50 / 15 / -20 / -55；2026-11-13 尺量 1 號格 front 75 mm，實際場地整排偏 5 mm）
 
 標定（不需要看到場地左右兩端，相機無法再拉高）：
   y = ±120  場地上下兩條長邊（逐欄穩健擬合直線）
@@ -38,7 +39,7 @@ from vision_pkg.vision_core.geometry import apply_homography, order_corners, pol
 FIELD_W_MM, FIELD_H_MM = 600.0, 240.0
 HALF_W, HALF_H = FIELD_W_MM / 2, FIELD_H_MM / 2
 ZONES_MM = {'a': (-300.0, -100.0), 'b': (-100.0, 100.0), 'c': (100.0, 300.0)}
-STD_SLOTS_MM = [(x, y) for y in (50.0, 15.0, -20.0, -55.0) for x in (135.0, 170.0)]   # 格位 1..8
+STD_SLOTS_MM = [(x, y) for y in (45.0, 10.0, -25.0, -60.0) for x in (135.0, 170.0)]   # 格位 1..8（2026-11-13 尺量：1 號 front 75 = y 45）
 ARM_BASES_MM = {'arm1': (-100.0, 125.0), 'arm2': (100.0, 125.0)}
 N_SLOTS = 8
 
